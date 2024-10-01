@@ -1,0 +1,28 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: compile_in_123
+      run: make compile_in_123
+
+    - name: compile_in_helloworld
+      run: make compile_in_helloworld
+
+    - name: run
+      run: make run
+
+    - name: clean
+      run: make clean
+
